@@ -26,7 +26,7 @@ export default function Footer() {
                                 Elevate your style with LuxeCarry's curated collection of timeless bags. Fusing elegance with function, our designs are crafted to complement your every move—whether it's a chic evening out or a busy day on the go
                             </p>
                         </div>
-                        
+
                         <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
                             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                                 <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
@@ -86,7 +86,7 @@ export default function Footer() {
                             </p>
                             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                                 <a className="text-violet-800">
-                                    <div class=" text-violet-700 ...">
+                                    <div className=" text-violet-700 ...">
                                         <svg
                                             fill="currentColor"
                                             strokeLinecap="round"
