@@ -1,6 +1,6 @@
 // https://images-cdn.ubuy.co.in/6540283285b4b8351817da2d-small-crossbody-bags-shoulder-bag-for.jpg
 // https://flairworld.pk/cdn/shop/products/1_2006b67d-7e82-49a4-9dfa-3e7c387f29a3.jpg?v=1680258009
-// https:1ststep.pk/cdn/shop/files/12_092037cf-ebd8-4e21-9ec9-0191fc9a1dd5_2048x.webp?v=1706519337
+// https://1ststep.pk/cdn/shop/files/12_092037cf-ebd8-4e21-9ec9-0191fc9a1dd5_2048x.webp?v=1706519337
 export default function Cards() {
 
 
@@ -80,7 +80,7 @@ export default function Cards() {
                                         <img
                                             alt="content"
                                             className="object-cover h-full"
-                                            src="https:1ststep.pk/cdn/shop/files/12_092037cf-ebd8-4e21-9ec9-0191fc9a1dd5_2048x.webp?v=1706519337"
+                                            src="https://1ststep.pk/cdn/shop/files/12_092037cf-ebd8-4e21-9ec9-0191fc9a1dd5_2048x.webp?v=1706519337"
                                         />
                                     </div>
                                 </div>
