@@ -1,173 +1,102 @@
+import { useState, useEffect } from "react";
+
+import axios from 'axios'
+
+
+
 export default function Cards() {
+    const [postData, setPostData] = useState([])
 
+    const getApiData = () => {
+        axios.get('https://dummyjson.com/products')
+            .then((res) => {
+                console.log(res);
+                setPostData([...res.data.products])
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
+    const postApiData = () => {
+        axios.post('https://dummyjson.com/posts/', {
+            name: "saif",
+            email: "abc@gmail.com",
+            id: 4
+        })
+            .then((res) => {
+                console.log(res.data);
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    const editData = () => {
+        axios.put("https://dummyjson.com/posts/1", {
+            body: "asda",
+            age: 12
+        })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    };
+
+    const deleteData = () => {
+        axios.delete("https://dummyjson.com/posts/1")
+
+            .then(() => {
+                console.log("delete");
+            })
+    }
+
+    useEffect(() => {
+        getApiData()
+    }, [])
     return (
         <>
-            <div className="text-gray-600 body-font">
-                <div className="container px-5 py-15 mx-auto">
-                    <div className="flex flex-wrap sm:flex-row flex-col py-6 mb-5 justify-center items-center">
-                        <h1 className="sm:w-2/5 text-gray-900 font-medium title-font text-3xl mb-2 sm:mb-0 text-center">
-                            <span className="text-violet-700">Cards</span> <span className="text-teal-600">Section</span>
-                        </h1>
-                    </div>
+            {/* <button onClick={getApiData}>getData</button> */}
+            {/* <button onClick={postApiData}>postData</button>
+            <button onClick={editData} className="p-10">editData</button>
+            <button onClick={deleteData} className="p-10">delete</button> */}
 
-                    <div className="flex justify-center mt-5">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Grid layout for responsiveness */}
-                            {/* First Card */}
-                            <div className="p-4 border-solid border-2 rounded border-teal-600 shadow-2xl">
-                                <div className="rounded-lg h-64 overflow-hidden">
-                                    <div className="flex justify-center items-center h-full">
-                                        <img
-                                            alt="content"
-                                            className="object-cover h-full"
-                                            src="https://images-cdn.ubuy.co.in/6540283285b4b8351817da2d-small-crossbody-bags-shoulder-bag-for.jpg"
-                                        />
-                                    </div>
-                                </div>
-                                <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-                                    <span className="text-violet-700">Women Bags</span>
-                                </h2>
-                                <p className="text-base leading-relaxed mt-2">
-                                    Lightweight Small Crossbody Bags Shoulder Bag for Women Stylish Ladies Cell Phone Purse and Handbags Wallet
-                                </p>
-                                <div className="flex">
-                                    <button className="flex-shrink-0 text-white bg-teal-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Second Card */}
-                            <div className="p-4 border-solid border-2 rounded border-teal-600 shadow-2xl">
-                                <div className="rounded-lg h-64 overflow-hidden">
-                                    <div className="flex justify-center items-center h-full">
-                                        <img
-                                            alt="content"
-                                            className="object-cover h-full"
-                                            src="https://flairworld.pk/cdn/shop/products/1_2006b67d-7e82-49a4-9dfa-3e7c387f29a3.jpg?v=1680258009"
-                                        />
-                                    </div>
-                                </div>
-                                <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-                                    <span className="text-violet-700">Women Bags</span>
-                                </h2>
-                                <p className="text-base leading-relaxed mt-2">
-                                    Lightweight Small Crossbody Bags Shoulder Bag for Women Stylish Ladies Cell Phone Purse and Handbags Wallet
-                                </p>
-                                <div className="flex">
-                                    <button className="flex-shrink-0 text-white bg-teal-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Third Card */}
-                            <div className="p-4 border-solid border-2 rounded border-teal-600 shadow-2xl">
-                                <div className="rounded-lg h-64 overflow-hidden">
-                                    <div className="flex justify-center items-center h-full">
-                                        <img
-                                            alt="content"
-                                            className="object-cover h-full"
-                                            src="https://1ststep.pk/cdn/shop/files/12_092037cf-ebd8-4e21-9ec9-0191fc9a1dd5_2048x.webp?v=1706519337"
-                                        />
-                                    </div>
-                                </div>
-                                <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-                                    <span className="text-violet-700">Women Bags</span>
-                                </h2>
-                                <p className="text-base leading-relaxed mt-2">
-                                    Lightweight Small Crossbody Bags Shoulder Bag for Women Stylish Ladies Cell Phone Purse and Handbags Wallet
-                                </p>
-                                <div className="flex">
-                                    <button className="flex-shrink-0 text-white bg-teal-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="flex justify-center mt-5">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Grid layout for responsiveness */}
-                            {/* Fourth Card */}
-                            <div className="p-4 border-solid border-2 rounded border-teal-600 shadow-2xl">
-                                <div className="rounded-lg h-64 overflow-hidden">
-                                    <div className="flex justify-center items-center h-full">
-                                        <img
-                                            alt="content"
-                                            className="object-cover h-full"
-                                            src="https://i.tribune.com.pk/media/images/SLing-bag1635181241-4/SLing-bag1635181241-4-436x333.webp"
-                                        />
-                                    </div>
-                                </div>
-                                <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-                                    <span className="text-violet-700">Women Bags</span>
-                                </h2>
-                                <p className="text-base leading-relaxed mt-2">
-                                    Lightweight Small Crossbody Bags Shoulder Bag for Women Stylish Ladies Cell Phone Purse and Handbags Wallet
-                                </p>
-                                <div className="flex">
-                                    <button className="flex-shrink-0 text-white bg-teal-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Fifth Card */}
-                            <div className="p-4 border-solid border-2 rounded border-teal-600 shadow-2xl">
-                                <div className="rounded-lg h-64 overflow-hidden">
-                                    <div className="flex justify-center items-center h-full">
-                                        <img
-                                            alt="content"
-                                            className="object-cover h-full"
-                                            src="https://rtwcreation.com/cdn/shop/products/Dark-brown-quarter-multi-compartment-satchel-bag.jpg?v=1636630939"
-                                        />
-                                    </div>
-                                </div>
-                                <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-                                    <span className="text-violet-700">Women Bags</span>
-                                </h2>
-                                <p className="text-base leading-relaxed mt-2">
-                                    Lightweight Small Crossbody Bags Shoulder Bag for Women Stylish Ladies Cell Phone Purse and Handbags Wallet
-                                </p>
-                                <div className="flex">
-                                    <button className="flex-shrink-0 text-white bg-teal-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Sixth Card */}
-                            <div className="p-4 border-solid border-2 rounded border-teal-600 shadow-2xl">
-                                <div className="rounded-lg h-64 overflow-hidden">
-                                    <div className="flex justify-center items-center h-full">
-                                        <img
-                                            alt="content"
-                                            className="object-cover h-full"
-                                            src="https://leshop.pk/cdn/shop/files/IMG-20240221-WA0002.jpg?v=1708484198"
-                                        />
-                                    </div>
-                                </div>
-                                <h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-                                    <span className="text-violet-700">Women Bags</span>
-                                </h2>
-                                <p className="text-base leading-relaxed mt-2">
-                                    Lightweight Small Crossbody Bags Shoulder Bag for Women Stylish Ladies Cell Phone Purse and Handbags Wallet
-                                </p>
-                                <div className="flex">
-                                    <button className="flex-shrink-0 text-white bg-teal-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
+            <div className="flex justify-center py-6 mb-5">
+                <h1 className="text-gray-900 font-semibold text-3xl text-center">
+                    <span className="text-violet-700">Cards</span> <span className="text-teal-600">Section</span>
+                </h1>
             </div>
 
+
+            <div className="container px-5 py-10 mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Responsive grid layout */}
+                    {postData.map((x, i) => (
+                        <div key={i} className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+                            {/* Image Section */}
+                            <div className="h-64 w-full rounded-lg overflow-hidden mb-4">
+                                <img
+                                    alt="content"
+                                    className="object-cover w-full h-full"
+                                    src={x.thumbnail}
+                                />
+                            </div>
+                            {/* Price and Title */}
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+                                <span className="text-teal-600">{x.price}</span>
+                            </h2>
+                            <p className="text-gray-600 text-sm text-center mb-4">{x.title}</p>
+
+                            {/* Add to Cart Button */}
+                            <button className="w-60 bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            </div>
 
         </>
     );
